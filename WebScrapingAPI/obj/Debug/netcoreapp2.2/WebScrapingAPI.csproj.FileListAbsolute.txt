@@ -1,0 +1,14 @@
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\bin\Debug\netcoreapp2.2\WebScrapingAPI.deps.json
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\bin\Debug\netcoreapp2.2\WebScrapingAPI.runtimeconfig.json
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\bin\Debug\netcoreapp2.2\WebScrapingAPI.runtimeconfig.dev.json
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\bin\Debug\netcoreapp2.2\WebScrapingAPI.dll
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\bin\Debug\netcoreapp2.2\WebScrapingAPI.pdb
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\obj\Debug\netcoreapp2.2\WebScrapingAPI.csprojAssemblyReference.cache
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\obj\Debug\netcoreapp2.2\WebScrapingAPI.csproj.CoreCompileInputs.cache
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\obj\Debug\netcoreapp2.2\WebScrapingAPI.RazorAssemblyInfo.cache
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\obj\Debug\netcoreapp2.2\WebScrapingAPI.RazorAssemblyInfo.cs
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\obj\Debug\netcoreapp2.2\WebScrapingAPI.AssemblyInfoInputs.cache
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\obj\Debug\netcoreapp2.2\WebScrapingAPI.AssemblyInfo.cs
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\obj\Debug\netcoreapp2.2\WebScrapingAPI.RazorTargetAssemblyInfo.cache
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\obj\Debug\netcoreapp2.2\WebScrapingAPI.dll
+C:\Users\wbrat\source\repos\WebScrapingAPI\WebScrapingAPI\obj\Debug\netcoreapp2.2\WebScrapingAPI.pdb
