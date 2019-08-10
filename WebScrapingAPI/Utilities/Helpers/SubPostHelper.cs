@@ -1,7 +1,6 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
@@ -18,31 +17,51 @@ namespace WebScrapingAPI.Utilities.Helpers
             var SubTopPostsList = new List<SubTopPosts>();
             foreach (var sub in subList)
             {
-                List<string> postList = await ParseWebPage(sub);
+                var subTopPosts = await ParseWebPage(sub);
 
-                SubTopPostsList.Add(new SubTopPosts { SubName = sub.SubTitle, TopPosts = postList });
+                SubTopPostsList.Add(subTopPosts);
             }
 
             return SubTopPostsList;
         }
 
-        private static async Task<List<string>> ParseWebPage(Subs sub)
+        private static async Task<SubTopPosts> ParseWebPage(Subs sub)
         {
             var response = await client.GetAsync("http://reddit.com/r/" + sub.Url);
             var pageContents = await response.Content.ReadAsStringAsync();
             HtmlDocument pageDocument = new HtmlDocument();
             pageDocument.LoadHtml(pageContents);
-
-            var postText = pageDocument.DocumentNode.SelectNodes("(//h2[contains(@class, 'yk4f6w-0')])");
-
-            var postList = new List<string>();
-
-            foreach (var post in postText)
+          
+            var postText = pageDocument.DocumentNode.SelectNodes("(//h3[contains(@class, '_eYtD2XCVieq6emjKBH3m')])");
+            var upvoteCount = pageDocument.DocumentNode.SelectNodes("(//div[contains(@class, '_1rZYMD_4xY3gRcSS3p8ODO _25IkBM0rRUqWX5ZojEMAFQ')])");
+            
+            if(postText != null && upvoteCount != null)
             {
-                postList.Add(HttpUtility.HtmlDecode(post.InnerText));
-            }
+                var postList = new List<Post>();
 
-            return postList;
+                var smallestUpperBound = Math.Min(postText.Count, upvoteCount.Count);
+
+                for (var i = 0; i < smallestUpperBound; i++)
+                {
+                    postList.Add(new Post
+                    {
+                        Title = HttpUtility.HtmlDecode(postText[i].InnerText),
+                        UpVotes = HttpUtility.HtmlDecode(upvoteCount[i].InnerText)
+                    });
+                }
+
+                var subTopPosts = new SubTopPosts
+                {
+                    SubName = sub.SubTitle,
+                    TopPosts = postList
+                };
+
+                return subTopPosts;
+            }
+            else
+            {
+                throw new Exception("Data scraper has encountered an error, likely caused by class name changes on specified text.");
+            };
         }
     }
 }

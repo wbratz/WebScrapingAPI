@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using WebScrapingAPI.Utilities.Helpers;
+using WebScrapingAPI.Contexts;
+using WebScrapingAPI.Repositories.Contracts;
+using WebScrapingAPI.Repositorites;
 
 namespace WebScrapingAPI
 {
@@ -26,6 +22,9 @@ namespace WebScrapingAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<WebscrapingdbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("WebScrapingdb")));
+            services.AddTransient<IWebScrapingRepository, WebScrapingRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
