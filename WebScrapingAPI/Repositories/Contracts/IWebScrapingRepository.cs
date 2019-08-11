@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebScrapingAPI.Contexts.Models;
 using WebScrapingAPI.Models;
 
 namespace WebScrapingAPI.Repositories.Contracts
@@ -18,5 +19,6 @@ namespace WebScrapingAPI.Repositories.Contracts
         Task<TopScrapedDTO> GetTopScrapedAllTime();
         Task<TopUpvotesDTO> GetLeastUpvotedAllTime();
         Task<List<string>> GetSubs();
+        Task<List<Posts>> GetAllPosts();
     }
 }

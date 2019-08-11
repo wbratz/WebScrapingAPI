@@ -87,6 +87,11 @@ namespace WebScrapingAPI.Repositorites
             return result;
         }
 
+        public async Task<List<Posts>> GetAllPosts()
+        {
+            return await _context.Posts.ToListAsync();
+        }
+
         public async Task<List<TopUpvotesDTO>> GetTopUpvotesBySub(int sub)
         {
             var TopUpvotesBySub = await _context.Posts.Where(x => x.SubId == sub)
