@@ -27,38 +27,45 @@ namespace WebScrapingAPI.Controllers
         }
 
         [HttpGet]
-        [Route("data/TopPostData/{sub}")]
+        [Route("data/TopPost/{sub}")]
         public async Task<List<TopPostsBySubDTO>> GetTopPostsBySub(int sub)
         {
             return await _webScrapingRepository.GetTopPostsBySub(sub);
         }
 
         [HttpGet]
-        [Route("data/TopUpvoteData/{sub}")]
-        public async Task<List<TopPostsBySubDTO>> GetTopUpvotesBySub(int sub)
+        [Route("data/TopUpvote/{sub}")]
+        public async Task<List<TopUpvotesDTO>> GetTopUpvotesBySub(int sub)
         {
-            return await _webScrapingRepository.GetTopPostsBySub(sub);
+            return await _webScrapingRepository.GetTopUpvotesBySub(sub);
         }
 
         [HttpGet]
-        [Route("data/TopScrapedData/{sub}")]
-        public async Task<List<TopPostsBySubDTO>> GetMostScrapedBySub(int sub)
+        [Route("data/TopScraped/{sub}")]
+        public async Task<List<TopScrapedDTO>> GetMostScrapedBySub(int sub)
         {
-            return await _webScrapingRepository.GetTopPostsBySub(sub);
+            return await _webScrapingRepository.GetTopScrapedBySub(sub);
         }
 
         [HttpGet]
         [Route("data/TopPostAllTime")]
-        public async Task<List<TopPostsBySubDTO>> GetTopPostAllTime(int sub)
+        public async Task<TopUpvotesDTO> GetTopUpVotedAllTime()
         {
-            return await _webScrapingRepository.GetTopPostsBySub(sub);
+            return await _webScrapingRepository.GetTopUpvotedAllTime();
         }
 
         [HttpGet]
         [Route("data/TopScrapedAllTime")]
-        public async Task<List<TopPostsBySubDTO>> GetMostScrapedAllTime(int sub)
+        public async Task<TopScrapedDTO> GetMostScrapedAllTime()
         {
-            return await _webScrapingRepository.GetTopPostsBySub(sub);
+            return await _webScrapingRepository.GetTopScrapedAllTime();
+        }
+
+        [HttpGet]
+        [Route("subs")]
+        public async Task<List<string>> GetSubs()
+        {
+            return await _webScrapingRepository.GetSubs();
         }
 
         [HttpPost("{yes}")]
